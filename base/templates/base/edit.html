@@ -1,0 +1,18 @@
+{% extends 'base/add.html' %}
+
+{% block modal-id %} id="editModal{{d.id}}" {% endblock modal-id %}
+
+{% block modal-title %}Edit Student {% endblock modal-title %}
+
+{% block modal-form-action %} action="/edit/{{d.id}}" {% endblock modal-form-action %}
+
+{% block value-fname %}value="{{d.first_name}}"{% endblock value-fname %}
+
+{% block value-lname %}value="{{d.last_name}}"{% endblock value-lname %}
+
+{% block value-email %}value="{{d.email}}"{% endblock value-email %}
+
+{% block value-age %}value="{{d.age}}"{% endblock value-age %}
+{% block value-gender %}{{d.gender}}{% endblock value-gender %}
+
+{% block btn-value %}Update{% endblock btn-value %}

@@ -1,0 +1,25 @@
+
+  <!-- Modal -->
+  <div class="modal fade" {% block modal-id %} id="addModal{{ d.id }}" {% endblock modal-id %} tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title fs-5" id="addModalLabel">Add Student</h6>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!--add form here-->
+        <div class="modal-body">
+            <form action="/delete/{{d.id}}" method="POST">
+              {% csrf_token %}
+              <div class="card-body"> 
+              <p>Are You Shure You wont delete {{ d.first_name }} ?</p>
+              <a class="btn btn-success" href="{% url 'home'%}">Go Back</a>
+              <input class="btn btn-danger" type="submit" value="Confirm">
+           </form>
+        <!--add from end-->
+        
+
+
+      </div>
+    </div>
+  </div>

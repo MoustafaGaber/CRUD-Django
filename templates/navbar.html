@@ -1,0 +1,58 @@
+<nav
+  class="navbar fixed-top navbar-expand-lg bg-primary mb-5"
+  data-bs-theme="dark"
+>
+  <div class="container">
+    <a class="navbar-brand" href="/">Moustafa</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item mx-5 py-2">
+          <form method="GET" action="{% url 'home' %}">
+            <input
+              class="bg-light"
+              type="text"
+              name="q"
+              placeholder="Search Room..."
+            />
+          </form>
+        </li>
+
+        <li class="nav-item">
+          {% if request.user.is_authenticated %}
+          <span class="nav-link active" aria-current="page"
+            >Welcome {{request.user}}
+          </span>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            href="{% url 'logout' %}  "
+            >logout</a
+          >
+
+          {% else %}
+          <a class="nav-link active" aria-current="page" href="{% url 'home' %}"
+            >Login</a
+          >
+
+          {% endif %}
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
